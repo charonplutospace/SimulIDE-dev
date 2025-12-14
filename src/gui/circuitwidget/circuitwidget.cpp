@@ -152,8 +152,13 @@ void CircuitWidget::createActions()
 
     zoomFitAct = new QAction( QIcon(":/zoomfit.svg"),tr("Zoom to fit"), this);
     zoomFitAct->setStatusTip( tr("Zoom Circuit to fit all components"));
-    connect( zoomFitAct, &QAction::triggered,
-            CircuitView::self(), &CircuitView::zoomToFit, Qt::UniqueConnection );
+    //connect( zoomFitAct, &QAction::triggered,
+    //        CircuitView::self(), &CircuitView::zoomToFit, Qt::UniqueConnection );
+    auto view = CircuitView::self();
+    if (view) {
+        connect(zoomFitAct, &QAction::triggered,
+                view, &CircuitView::zoomToFit, Qt::UniqueConnection);
+    }
 
     zoomSelAct = new QAction( QIcon(":/zoomsel.svg"),tr("Zoom to selected"), this);
     zoomSelAct->setStatusTip( tr("Zoom Circuit to fit all selected components"));
@@ -193,8 +198,10 @@ void CircuitWidget::createActions()
     
     aboutQtAct = new QAction( QIcon(":/about.svg"),tr("About Qt"), this);
     aboutQtAct->setStatusTip(tr("About Qt"));
-    connect( aboutQtAct, &QAction::triggered,
-                   qApp, &QApplication::aboutQt, Qt::UniqueConnection );
+    connect(aboutQtAct,
+            &QAction::triggered,
+            qApp,
+            &QApplication::aboutQt);
 }
 
 void CircuitWidget::createToolBars()

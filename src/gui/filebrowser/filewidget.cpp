@@ -60,17 +60,20 @@ FileWidget::FileWidget( QWidget* parent )
     addEntry("User Data",  MainWindow::self()->userPath() );
     addEntry("Settings",   settingsDir );
 
-    connect( m_bookmarks, SIGNAL( itemClicked( QListWidgetItem* )), 
-             this,        SLOT(   itemClicked( QListWidgetItem* )), Qt::UniqueConnection);
+    connect(m_bookmarks, &QListWidget::itemClicked,
+            this, &FileWidget::itemClicked,
+            Qt::UniqueConnection);
              
-    //connect( m_searchFiles, SIGNAL( editingFinished() ),
+    // This was already commented Stefan connect( m_searchFiles, SIGNAL( editingFinished() ),
     //         this,          SLOT( searchChanged() ), Qt::UniqueConnection);
 
-    connect( m_cdUpButton,  SIGNAL( released() ),
-             m_fileBrowser, SLOT( cdUp() ), Qt::UniqueConnection);
-             
-    connect( m_path, SIGNAL( editingFinished() ),
-             this,   SLOT(  pathChanged() ), Qt::UniqueConnection);
+    connect(m_cdUpButton, &QPushButton::released,
+            m_fileBrowser, &FileBrowser::cdUp,
+            Qt::UniqueConnection);
+
+    connect(m_path, &QLineEdit::editingFinished,
+            this, &FileWidget::pathChanged,
+            Qt::UniqueConnection);
              
     int size = settings->beginReadArray("bookmarks");
     
@@ -109,7 +112,7 @@ void FileWidget::addEntry( QString name, QString path )
     
     QFont font;
     font.setPixelSize( 11*MainWindow::self()->fontScale() );
-    font.setWeight(70);
+    font.setWeight(QFont::DemiBold);
     item->setFont( font );
     item->setIcon( QIcon(":/open.png") );
 }
@@ -170,9 +173,10 @@ void FileWidget::contextMenuEvent( QContextMenuEvent* event )
         QPoint eventPos = event->globalPos();
         QMenu menu;
 
-        QAction* remBookMarkAction = menu.addAction(QIcon(":/remove.svg"),tr("Remove Bookmark"));
-        connect( remBookMarkAction, SIGNAL( triggered()), 
-                 this,              SLOT(   remBookMark() ) );
+        QAction* remBookMarkAction =
+            menu.addAction(QIcon(":/remove.svg"), tr("Remove Bookmark"));
+        connect(remBookMarkAction, &QAction::triggered,
+                this, [this]() { remBookMark(); });
                  
         menu.exec( eventPos );
 }   }

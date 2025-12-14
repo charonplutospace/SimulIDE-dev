@@ -131,22 +131,25 @@ void FileBrowser::contextMenuEvent( QContextMenuEvent* event )
         if( m_fileSystemModel->isDir( currentIndex()) )
         {
             QAction* addBookMarkAction = menu.addAction(QIcon(":/setroot.png"),tr("Add Bookmark"));
-            connect( addBookMarkAction, SIGNAL( triggered()), 
-                     this,              SLOT(   addBookMark() ), Qt::UniqueConnection );
+            connect(addBookMarkAction, &QAction::triggered,
+                    this, &FileBrowser::addBookMark,
+                    Qt::UniqueConnection);
                      
             menu.addSeparator();
         }else{
             QAction* openWithEditor = menu.addAction(QIcon(":/open.png"),tr("Open in editor"));
-            connect( openWithEditor, SIGNAL( triggered()), 
-                     this,           SLOT(   openInEditor()), Qt::UniqueConnection );
+            connect(openWithEditor, &QAction::triggered,
+                    this, &FileBrowser::openInEditor,
+                    Qt::UniqueConnection);
                      
             menu.addSeparator();
         }
         QAction* showHidden = menu.addAction( tr("Show Hidden"));
         showHidden->setCheckable( true );
         showHidden->setChecked( m_showHidden );
-        connect( showHidden, SIGNAL( triggered()), 
-                 this,       SLOT(   showHidden()), Qt::UniqueConnection );
+        connect(showHidden, &QAction::triggered,
+                this, &FileBrowser::showHidden,
+                Qt::UniqueConnection);
         menu.exec( eventPos );
 }   }
 
@@ -156,4 +159,4 @@ void FileBrowser::keyPressEvent( QKeyEvent *event )
     if( isEnter ) open();
 }
 
-#include  "moc_filebrowser.cpp"
+

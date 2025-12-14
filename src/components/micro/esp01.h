@@ -89,7 +89,9 @@ class Esp01 : public Component, public UsartModule, public eElement
 
         QHash<int, QTcpSocket*> m_tcpSockets;
 
-        QSignalMapper* m_connectSM;
-        QSignalMapper* m_discontSM;
-        QSignalMapper* m_readyReSM;
+        //QSignalMapper* m_connectSM;
+        //QSignalMapper* m_discontSM;
+        //QSignalMapper* m_readyReSM;
 };
+
+

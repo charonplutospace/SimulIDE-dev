@@ -105,7 +105,7 @@ void Stm32::createPins()
 {
     m_ports.resize( m_portN );
     for( int i=0; i<m_portN; ++i )
-        createPort( &m_ports[i], i+1, QString('A'+i), 16 );
+        createPort( &m_ports[i], i+1, QString(QChar('A'+i)), 16 );
 
     setPackageFile("./data/STM32/"+m_packageFile);
     Chip::setName( m_device );
