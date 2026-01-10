@@ -109,23 +109,6 @@ OutHighlighter::OutHighlighter( QTextDocument* parent )
 }
 OutHighlighter::~OutHighlighter(){}
 
-/*void OutHighlighter::highlightBlock( const QString &text )
-{
-    QString upText = text;
-    upText = upText.toUpper(); // Do case insensitive
-
-    for( const HighlightingRule &rule : highlightingRules )
-    {
-        QRegularExpression expression( rule.pattern );
-        int index = expression.indexIn( upText );
-        while( index >= 0 )
-        {
-            int length = expression.matchedLength();
-            setFormat( index, length, rule.format );
-            index = expression.indexIn( upText, index + length );
-}   }   }*/
-// Stefan Persson StefanPersson
-
 void OutHighlighter::highlightBlock(const QString &text)
 {
     for (const HighlightingRule &rule : highlightingRules)

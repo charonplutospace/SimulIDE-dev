@@ -104,8 +104,6 @@ RamTable::RamTable( QWidget* parent, eMcu* processor ,bool cpuMonitor )
     splitter->setSizes( {{50,320}} );
     splitter_2->setSizes( {100,30} );
 
-    // Stefan Persson
-
     connect(variables, &QAbstractItemView::activated,
             this, &RamTable::VarDoubleClick);
 

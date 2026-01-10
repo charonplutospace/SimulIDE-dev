@@ -70,7 +70,6 @@ MainWindow::MainWindow()
     }else{
         QScreen* screen = QGuiApplication::primaryScreen();
         float dpiX = screen->logicalDotsPerInchX();
-        // float dpiX = qApp->desktop()->logicalDpiX(); Stefan Persson
         scale = dpiX/96.0;
     }
     setFontScale( scale );
@@ -401,4 +400,3 @@ QSettings* MainWindow::settings() { return m_settings; }
 
 QSettings* MainWindow::compSettings() { return m_compSettings; }
 
-//#include  "moc_mainwindow.cpp" Stefan Persson

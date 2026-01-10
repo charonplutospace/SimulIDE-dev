@@ -64,7 +64,7 @@ FileWidget::FileWidget( QWidget* parent )
             this, &FileWidget::itemClicked,
             Qt::UniqueConnection);
              
-    // This was already commented Stefan connect( m_searchFiles, SIGNAL( editingFinished() ),
+    // connect( m_searchFiles, SIGNAL( editingFinished() ),
     //         this,          SLOT( searchChanged() ), Qt::UniqueConnection);
 
     connect(m_cdUpButton, &QPushButton::released,

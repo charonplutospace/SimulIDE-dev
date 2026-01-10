@@ -86,21 +86,6 @@ Esp01::Esp01( QString type, QString id )
                          [this, link]() { tcpReadyRead(link); });
     }
 
-    // Stefan Persson StefanPersson clean upp this
-
-    /*
-    m_connectSM = new QSignalMapper();
-    QObject::connect( m_connectSM, QOverload<int>::of(&QSignalMapper::mapped),
-                     [=](int i){ tcpConnected(i); } );
-
-    m_discontSM = new QSignalMapper();
-    QObject::connect( m_discontSM, QOverload<int>::of(&QSignalMapper::mapped),
-                     [=](int i){ tcpConnected(i); } );
-
-    m_readyReSM = new QSignalMapper();
-    QObject::connect( m_readyReSM, QOverload<int>::of(&QSignalMapper::mapped),
-                     [=](int i){ tcpConnected(i); } ); */
-
     Simulator::self()->addToUpdateList( this );
 
     addPropGroup( { tr("Main"), {
