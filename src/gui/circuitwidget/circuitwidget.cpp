@@ -68,8 +68,6 @@ CircuitWidget::CircuitWidget( QWidget *parent  )
     m_panelSplitter = new QSplitter( this );
     m_panelSplitter->setObjectName("Panelplitter");
     m_panelSplitter->setOrientation( Qt::Horizontal );
-    //m_panelSplitter->addWidget( m_currentWidget );
-    //m_panelSplitter->addWidget( m_infoWidget );
     m_panelSplitter->addWidget( topWidget );
     m_panelSplitter->addWidget( &m_outPane );
     m_panelSplitter->setSizes( {170, 500} );
@@ -152,8 +150,6 @@ void CircuitWidget::createActions()
 
     zoomFitAct = new QAction( QIcon(":/zoomfit.svg"),tr("Zoom to fit"), this);
     zoomFitAct->setStatusTip( tr("Zoom Circuit to fit all components"));
-    //connect( zoomFitAct, &QAction::triggered,
-    //        CircuitView::self(), &CircuitView::zoomToFit, Qt::UniqueConnection );
     auto view = CircuitView::self();
     if (view) {
         connect(zoomFitAct, &QAction::triggered,

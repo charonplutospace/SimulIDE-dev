@@ -65,11 +65,6 @@ AudioOut::AudioOut( QString type, QString id )
     m_audioOutput = nullptr;
     m_ioDevice = nullptr;
 
-    //m_deviceinfo = QAudioDeviceInfo::defaultOutputDevice();
-    //QAudioDevice m_deviceinfo;
-    //m_deviceinfo = QMediaDevices::defaultAudioOutput();
-
-
     // m_deviceinfo is a QAudioDevice
     m_deviceinfo = QMediaDevices::defaultAudioOutput();
 
