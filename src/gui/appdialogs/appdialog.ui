@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>673</width>
-    <height>500</height>
+    <height>570</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -70,7 +70,7 @@
         <locale language="C" country="AnyTerritory"/>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>2</number>
        </property>
        <property name="usesScrollButtons">
         <bool>false</bool>
@@ -201,12 +201,14 @@
              <property name="currentText">
               <string notr="true">English</string>
              </property>
-             <property name="sizeAdjustPolicy">
-              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
-             </property>
              <item>
               <property name="text">
                <string notr="true">English</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">简体中文</string>
               </property>
              </item>
              <item>
@@ -393,7 +395,7 @@
             </size>
            </property>
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Orientation::Horizontal</enum>
            </property>
           </widget>
          </item>
@@ -409,7 +411,6 @@
             <font>
              <family>Ubuntu</family>
              <pointsize>12</pointsize>
-             <weight>50</weight>
              <italic>false</italic>
              <bold>false</bold>
             </font>
@@ -421,7 +422,7 @@
             <string>Updates:</string>
            </property>
            <property name="alignment">
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
            </property>
           </widget>
          </item>
@@ -545,13 +546,6 @@
           <widget class="QCheckBox" name="animate_curr">
            <property name="text">
             <string>Animate Currents</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="ansiSymbols">
-           <property name="text">
-            <string>ANSI Symbols</string>
            </property>
           </widget>
          </item>
@@ -746,6 +740,66 @@
             </widget>
            </item>
           </layout>
+         </item>
+         <item>
+          <widget class="Line" name="line_6">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_28">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>Ubuntu</family>
+             <pointsize>12</pointsize>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 12pt &quot;Ubuntu&quot;; color: rgb(85, 0, 127)</string>
+           </property>
+           <property name="text">
+            <string>Components</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="ansiSymbols">
+           <property name="text">
+            <string>ANSI Symbols</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="shortcutButton">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Component Shortcuts</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="Line" name="line_3">
@@ -1291,9 +1345,6 @@
              <property name="maxCount">
               <number>10</number>
              </property>
-             <property name="sizeAdjustPolicy">
-              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
-             </property>
              <item>
               <property name="text">
                <string notr="true">ps</string>
@@ -1425,9 +1476,6 @@
              </property>
              <property name="maxCount">
               <number>10</number>
-             </property>
-             <property name="sizeAdjustPolicy">
-              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
              <item>
               <property name="text">
